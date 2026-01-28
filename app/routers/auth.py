@@ -47,7 +47,6 @@ async def login(data: LoginRequest, response: Response, db: AsyncSession = Depen
     return tokens
 
 
-
 @router.post("/refresh", response_model=AccessTokenResponse)
 async def refresh(
     response: Response,
@@ -76,7 +75,7 @@ async def refresh(
 
 
 @router.post("/logout")
-async def logout(data: LogoutRequest, db: AsyncSession = Depends(get_db)):
+async def logout(data: LogoutRequest, response: Response, db: AsyncSession = Depends(get_db)):
     response.delete_cookie("access_token", path="/")
     response.delete_cookie("refresh_token", path="/auth/refresh")
     await auth_service.logout(db=db, refresh_token=data.refresh_token)
