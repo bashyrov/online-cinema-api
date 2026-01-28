@@ -41,7 +41,7 @@ async def login(data: LoginRequest, response: Response, db: AsyncSession = Depen
         secure=False,
         samesite="lax",
         max_age=60 * 60 * 24 * 30,
-        path="/auth/refresh",
+        path="/api/v1/auth/refresh",
     )
 
     return tokens
