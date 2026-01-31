@@ -9,6 +9,9 @@ class Settings(BaseSettings):
     JWT_ALGORITHM: str = "HS256"
     ACCESS_TTL_MIN: int = 15
     REFRESH_TTL_DAYS: int = 30
+    EMAIL_SENDER: str
+    EMAIL_SENDER_PASS: str
+    SENDGRID_API: str
 
 
 settings = Settings()
